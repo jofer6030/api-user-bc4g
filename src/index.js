@@ -1,4 +1,5 @@
 const express = require('express');
+const cors = require('cors');
 const dotenv = require('dotenv');
 dotenv.config()
 
@@ -10,6 +11,7 @@ const app = express();
 const port = process.env.PORT || 5000;
 
 app.use(express.json());
+app.use(cors());
 
 app.use('/api/v1/users',userRoutes)
 
@@ -17,5 +19,3 @@ app.use('/api/v1/users',userRoutes)
 app.listen(port, () => {
   console.log("El servidor is running on port:",port)
 })
-
-// http://localhost:8000/api/v1/users

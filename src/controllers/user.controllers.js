@@ -11,6 +11,10 @@ const registerUser = async (req, res) => {
       return res.status(400).json({msg: 'Ese correo ya esta en uso'})
     }
 
+    if(password.length < 5) {
+      return res.status(400).json({msg: 'La contraseña debe tener al menos 5 caracteres'})
+    }
+
     if(password !== confirm_password) {
       return res.status(400).json({msg: 'Las contraseñas no coinciden'})
     }
